@@ -16,12 +16,17 @@ NSMutableArray* movies = nil;
 AFHTTPSessionManager *sessionManager = nil;
 int page = 0;
 bool isLoading = false;
+NSDictionary*movieDetailsParameters;
+NSString* apiKey = @"c2633d90b16883396aece840fd550cf6";
+NSString* defaultLanguage = @"en-US";
 
 - (id)init {
     self = [super init];
     if (self) {
         movies = [[NSMutableArray alloc] init];
         sessionManager = [AFHTTPSessionManager manager];
+        movieDetailsParameters = @{@"api_key": apiKey,
+                                   @"language": defaultLanguage};
     }
 
     return self;
@@ -36,12 +41,13 @@ bool isLoading = false;
     page++;
     isLoading = true;
     
-    NSDictionary *parameters = @{@"api_key": @"c2633d90b16883396aece840fd550cf6",
-                                 @"language": @"en-US",
+    NSDictionary *parameters = @{@"api_key": apiKey,
+                                 @"language": defaultLanguage,
                                  @"page": @(page)};
     
     [sessionManager GET:@"https://api.themoviedb.org/3/movie/popular"
-             parameters:parameters headers:nil
+             parameters:parameters
+                headers:nil
                progress:nil
                 success:^(NSURLSessionTask *task, id responseObject) {
         NSMutableArray*resultArray = [[NSMutableArray alloc] init];
@@ -57,6 +63,22 @@ bool isLoading = false;
         NSLog(@"Error: %@", error);
         callback(nil);
         isLoading = false;
+    }];
+}
+
+-(void) getMovieDetailsWithId:(NSInteger)movieId completion:(void(^)(MovieDetails*))callback {
+    NSString* urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@", @(movieId)];
+    
+    [sessionManager GET:urlString
+             parameters:movieDetailsParameters
+                headers:nil
+               progress:nil
+                success:^(NSURLSessionTask *task, id responseObject) {
+        MovieDetails* movieDetails = [[MovieDetails alloc] initWithDictionary:responseObject];
+        callback(movieDetails);
+    } failure:^(NSURLSessionTask *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        callback(nil);
     }];
 }
 

@@ -12,18 +12,19 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol MovieDetailsPresenterProtocol <NSObject>
-
+-(void) viewDidLoad;
 @end
 
 @protocol MovieDetailsViewProtocol <NSObject>
-
+-(void) setTitle:(NSString*)title;
+-(void) setTagline:(NSString*)tagline;
+-(void) setOverview:(NSString*)overview;
 @end
 
 @interface MovieDetailsPresenter : NSObject <MovieDetailsPresenterProtocol>
 
 @property (weak) id<MovieDetailsViewProtocol> view;
-- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager;
-
+- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager movieId:(NSInteger)movieId;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A40268C1648971A530AA8725 /* Pods_MovieList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40785E6512484C7CE5DD0764 /* Pods_MovieList.framework */; };
+		DD6AC408249957C300F8C794 /* MovieDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6AC407249957C300F8C794 /* MovieDetails.m */; };
 		DDB96D042497631200F51957 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB96D032497631200F51957 /* AppDelegate.m */; };
 		DDB96D0A2497631200F51957 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB96D092497631200F51957 /* ViewController.m */; };
 		DDB96D0D2497631200F51957 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DDB96D0B2497631200F51957 /* Main.storyboard */; };
@@ -33,6 +34,8 @@
 		40785E6512484C7CE5DD0764 /* Pods_MovieList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MovieList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C4124EEECF56D1CE6D23DFA /* Pods-MovieList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieList.release.xcconfig"; path = "Target Support Files/Pods-MovieList/Pods-MovieList.release.xcconfig"; sourceTree = "<group>"; };
 		B13E6A5D41AA5449460E76ED /* Pods-MovieList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieList.debug.xcconfig"; path = "Target Support Files/Pods-MovieList/Pods-MovieList.debug.xcconfig"; sourceTree = "<group>"; };
+		DD6AC406249957C300F8C794 /* MovieDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetails.h; sourceTree = "<group>"; };
+		DD6AC407249957C300F8C794 /* MovieDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetails.m; sourceTree = "<group>"; };
 		DDB96CFF2497631200F51957 /* MovieList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB96D022497631200F51957 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DDB96D032497631200F51957 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				DDB96D212497700B00F51957 /* StorageManager.m */,
 				DDB96D3B2497AEAF00F51957 /* Movie.h */,
 				DDB96D3C2497AEAF00F51957 /* Movie.m */,
+				DD6AC406249957C300F8C794 /* MovieDetails.h */,
+				DD6AC407249957C300F8C794 /* MovieDetails.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 				DDB96D2A2497777500F51957 /* MovieListPresenter.m in Sources */,
 				DDB96D1E2497642300F51957 /* AppCoordinator.m in Sources */,
 				DDB96D272497775500F51957 /* MovieListViewController.m in Sources */,
+				DD6AC408249957C300F8C794 /* MovieDetails.m in Sources */,
 				DDB96D0A2497631200F51957 /* ViewController.m in Sources */,
 				DDB96D32249777D200F51957 /* MovieDetailsViewController.m in Sources */,
 				DDB96D4E2497BF2000F51957 /* MovieListCell.m in Sources */,

@@ -39,14 +39,14 @@ UIWindow* _window;
     [_window makeKeyAndVisible];
 }
 
--(void)didSelectMovie:(Movie*)movie {
-    [self showMovieDetails];
+-(void)didSelectMovieWithId:(NSInteger)movieId {
+    [self showMovieDetailsWithMovieId:(NSInteger)movieId];
 }
 
-- (void)showMovieDetails {
+- (void)showMovieDetailsWithMovieId:(NSInteger)movieId {
     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MovieDetails" bundle: nil];
     MovieDetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"MovieDetailsViewController"];
-    MovieDetailsPresenter* presenter = [[MovieDetailsPresenter alloc] initWithStorageManager:_storageManager];
+    MovieDetailsPresenter* presenter = [[MovieDetailsPresenter alloc] initWithStorageManager:_storageManager movieId:movieId];
     vc.presenter = presenter;
     presenter.view = vc;
     

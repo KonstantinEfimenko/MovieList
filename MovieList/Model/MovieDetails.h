@@ -1,8 +1,8 @@
 //
-//  Movie.h
+//  MovieDetails.h
 //  MovieList
 //
-//  Created by Kostiantyn IEFYMENKO on 15.06.20.
+//  Created by Kostiantyn IEFYMENKO on 16.06.20.
 //  Copyright © 2020 Kostiantyn YEFYMENKO. All rights reserved.
 //
 
@@ -10,16 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Movie : NSObject
+@interface MovieDetails : NSObject
 
-@property NSInteger movieId;
 @property NSString* title;
-@property NSString* popularity;
-@property NSString* posterPath;
+@property NSString* tagline;
+@property NSString* overview;
 
 - (id)initWithDictionary:(NSDictionary*)dictionary;
-
-- (NSURL*) url;
 
 @end
 

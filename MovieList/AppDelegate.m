@@ -25,7 +25,6 @@
     return coordinator;
 }
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     if(@available(iOS 13, *)) {

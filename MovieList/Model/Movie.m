@@ -13,6 +13,7 @@
 -(id)initWithDictionary:(NSDictionary*)dictionary {
     self = [super init];
     if (self) {
+        _movieId = [dictionary[@"id"] integerValue];
         _title = dictionary[@"title"];
         _popularity = [dictionary[@"popularity"] stringValue];
         _posterPath = dictionary[@"poster_path"];

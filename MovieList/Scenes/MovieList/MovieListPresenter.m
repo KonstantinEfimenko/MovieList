@@ -12,7 +12,7 @@
 @implementation MovieListPresenter
 
 id<StorageManagerProtocol> _Nullable storage;
-NSArray*list;
+NSArray<Movie*>*list;
 AppCoordinator* _coordinator;
 
 - (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager coordinator:(AppCoordinator *)coordinator {
@@ -33,7 +33,7 @@ AppCoordinator* _coordinator;
 }
 
 -(void) didSelectMovieAtIndexPath:(NSIndexPath*)indexPath {
-    [_coordinator didSelectMovie:list[indexPath.row]];
+    [_coordinator didSelectMovieWithId:list[indexPath.row].movieId];
 }
 
 - (void) viewDidLoad {
@@ -41,9 +41,11 @@ AppCoordinator* _coordinator;
 }
 
 -(void) loadNext {
+    __weak typeof(self) weakSelf = self;
     [storage getMoviesWithCompletion:^(NSArray *array) {
+        __strong typeof(self) strongSelf = weakSelf;
         list = array;
-        [self->_view reloadTableView];
+        [strongSelf.view reloadTableView];
     }];
 }
 

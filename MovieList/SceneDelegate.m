@@ -23,7 +23,6 @@
     return coordinator;
 }
 
-
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions  API_AVAILABLE(ios(13.0)){
      id<CoordinatorProtocol> coordinator = [self applicationCoordinator];
        

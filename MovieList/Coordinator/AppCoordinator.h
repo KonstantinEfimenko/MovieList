@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface AppCoordinator : NSObject  <CoordinatorProtocol>
 -(id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager window: (UIWindow *) window;
 
--(void)didSelectMovie:(Movie*)movie;
+-(void)didSelectMovieWithId:(NSInteger*)movieId;
 @end
 
 NS_ASSUME_NONNULL_END

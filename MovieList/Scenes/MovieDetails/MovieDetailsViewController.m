@@ -10,23 +10,33 @@
 
 @interface MovieDetailsViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *taglineLabel;
+@property (weak, nonatomic) IBOutlet UILabel *overviewLabel;
+
 @end
 
 @implementation MovieDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self clearScreen];
+    [_presenter viewDidLoad];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)clearScreen {
+    _taglineLabel.text = nil;
+    _overviewLabel.text = nil;
 }
-*/
+
+-(void) setTitle:(NSString*)title {
+    [self.navigationItem setTitle:title];
+}
+
+-(void) setTagline:(NSString*)tagline {
+    _taglineLabel.text = tagline;
+}
+-(void) setOverview:(NSString*)overview {
+    _overviewLabel.text = overview;
+}
 
 @end

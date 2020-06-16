@@ -11,13 +11,32 @@
 @implementation MovieDetailsPresenter
 
 id<StorageManagerProtocol> _Nullable _storageManager;
+NSInteger _movieId;
 
-- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager {
+- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager movieId:(NSInteger)movieId {
     self = [super init];
     if (self) {
         _storageManager = storageManager;
+        _movieId = movieId;
     }
     return self;
+}
+
+-(void) viewDidLoad {
+    __weak typeof(self) weakSelf = self;
+    
+    [_storageManager getMovieDetailsWithId:_movieId completion:^(MovieDetails* movieDetails) {
+        __strong typeof(self) strongSelf = weakSelf;
+        if (movieDetails) {
+            [strongSelf fillViewWithMovieDetails:movieDetails];
+        }
+    }];
+}
+
+-(void) fillViewWithMovieDetails:(MovieDetails*)movieDetails {
+    [_view setTitle:movieDetails.title];
+    [_view setTagline:movieDetails.tagline];
+    [_view setOverview:movieDetails.overview];
 }
 
 @end
