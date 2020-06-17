@@ -11,7 +11,7 @@
 
 @implementation MovieListPresenter
 
-id<StorageManagerProtocol> _Nullable storage;
+__weak id<StorageManagerProtocol> _Nullable storage;
 NSArray<Movie*>*list;
 AppCoordinator* _coordinator;
 

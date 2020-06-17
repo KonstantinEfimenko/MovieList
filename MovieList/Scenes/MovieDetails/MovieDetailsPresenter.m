@@ -10,7 +10,7 @@
 
 @implementation MovieDetailsPresenter
 
-id<StorageManagerProtocol> _Nullable _storageManager;
+__weak id<StorageManagerProtocol> _Nullable _storageManager;
 NSInteger _movieId;
 
 - (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager movieId:(NSInteger)movieId {

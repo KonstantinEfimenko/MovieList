@@ -17,11 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 +(UINib*) nib;
 
-@property (weak, nonatomic) IBOutlet UIView *roundedView;
-@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *popularityLabel;
-
 -(void)setMovie:(Movie*)movie;
 
 @end

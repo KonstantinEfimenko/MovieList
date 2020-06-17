@@ -9,6 +9,15 @@
 #import "MovieListCell.h"
 @import AFNetworking;
 
+@interface MovieListCell()
+
+@property (weak, nonatomic) IBOutlet UIView *roundedView;
+@property (weak, nonatomic) IBOutlet UIImageView *posterImageView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *popularityLabel;
+
+@end
+
 @implementation MovieListCell
 
 +(NSString*)reuseKey {
