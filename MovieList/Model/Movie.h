@@ -17,9 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property NSString* popularity;
 @property NSString* posterPath;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
-- (NSURL*) url;
+- (NSURL *)url;
 
 @end
 

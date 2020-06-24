@@ -28,14 +28,15 @@
     _overviewLabel.text = nil;
 }
 
--(void) setTitle:(NSString*)title {
+- (void)setTitle:(NSString *)title {
     [self.navigationItem setTitle:title];
 }
 
--(void) setTagline:(NSString*)tagline {
+- (void)setTagline:(NSString *)tagline {
     _taglineLabel.text = tagline;
 }
--(void) setOverview:(NSString*)overview {
+
+- (void)setOverview:(NSString *)overview {
     _overviewLabel.text = overview;
 }
 

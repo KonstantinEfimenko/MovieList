@@ -13,22 +13,34 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol MovieListNavigationProtocol <NSObject>
+
+@property (copy) void (^didSelectMovieWithId)(NSInteger);
+
+@end
+
 @protocol MovieListPresenterProtocol <NSObject>
--(NSInteger) numberOfRows;
--(Movie*) movieAtIndexPath:(NSIndexPath*)indexPath;
--(void) viewDidLoad;
--(void) loadNext;
--(void) didSelectMovieAtIndexPath:(NSIndexPath*)indexPath;
+
+- (NSInteger)numberOfRows;
+- (Movie *)movieAtIndexPath:(NSIndexPath *)indexPath;
+- (void)viewDidLoad;
+- (void)loadNext;
+- (void)didSelectMovieAtIndexPath:(NSIndexPath *)indexPath;
+
 @end
 
 @protocol MovieListViewProtocol <NSObject>
-- (void) reloadTableView;
+
+- (void)reloadTableView;
+
 @end
 
 @interface MovieListPresenter : NSObject <MovieListPresenterProtocol>
 
 @property (weak) id<MovieListViewProtocol> view;
-- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager coordinator:(AppCoordinator*)coordinator;
+
+- (instancetype)initWithStorageManager:(id<StorageManagerProtocol>)storageManager navigation:(id<MovieListNavigationProtocol>)navigation;
+
 @end
 
 NS_ASSUME_NONNULL_END

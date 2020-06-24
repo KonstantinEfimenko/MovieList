@@ -9,13 +9,14 @@
 #import "AppCoordinator.h"
 #import "MovieListViewController.h"
 #import "MovieDetailsViewController.h"
+#import "MovieListNavigation.h"
 
 @implementation AppCoordinator
 
 id<StorageManagerProtocol> _storageManager;
-UIWindow* _window;
+UIWindow *_window;
 
--(id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager window:(UIWindow*) window {
+- (instancetype)initWithStorageManager:(id<StorageManagerProtocol>)storageManager window:(UIWindow *)window {
     self = [super init];
     if (self) {
         _storageManager = storageManager;
@@ -24,14 +25,19 @@ UIWindow* _window;
     return self;
 }
 
-- (void) start {
+- (void)start {
     [self showMovieList];
 }
 
-- (void) showMovieList {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MovieList" bundle: nil];
-    MovieListViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"MovieListViewController"];
-    MovieListPresenter* presenter = [[MovieListPresenter alloc] initWithStorageManager:_storageManager coordinator:self];
+- (void)showMovieList {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MovieList" bundle: nil];
+    MovieListViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MovieListViewController"];
+    MovieListNavigation *navigation = [[MovieListNavigation alloc] init];
+    navigation.didSelectMovieWithId = ^(NSInteger movieId){
+        [self didSelectMovieWithId:movieId];
+    };
+        
+    MovieListPresenter *presenter = [[MovieListPresenter alloc] initWithStorageManager:_storageManager navigation:navigation];
     vc.presenter = presenter;
     presenter.view = vc;
     
@@ -39,18 +45,18 @@ UIWindow* _window;
     [_window makeKeyAndVisible];
 }
 
--(void)didSelectMovieWithId:(NSInteger)movieId {
+- (void)didSelectMovieWithId:(NSInteger)movieId {
     [self showMovieDetailsWithMovieId:(NSInteger)movieId];
 }
 
 - (void)showMovieDetailsWithMovieId:(NSInteger)movieId {
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"MovieDetails" bundle: nil];
-    MovieDetailsViewController* vc = [storyboard instantiateViewControllerWithIdentifier:@"MovieDetailsViewController"];
-    MovieDetailsPresenter* presenter = [[MovieDetailsPresenter alloc] initWithStorageManager:_storageManager movieId:movieId];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MovieDetails" bundle:nil];
+    MovieDetailsViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"MovieDetailsViewController"];
+    MovieDetailsPresenter *presenter = [[MovieDetailsPresenter alloc] initWithStorageManager:_storageManager movieId:movieId];
     vc.presenter = presenter;
     presenter.view = vc;
     
-    UINavigationController* rootVC = (UINavigationController*) _window.rootViewController;
+    UINavigationController *rootVC = (UINavigationController *) _window.rootViewController;
     [rootVC pushViewController:vc animated:true];
 }
 

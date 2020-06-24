@@ -13,11 +13,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MovieListCell : UITableViewCell
 
-+(NSString*) reuseKey;
++ (NSString *)reuseKey;
 
-+(UINib*) nib;
++ (UINib *)nib;
 
--(void)setMovie:(Movie*)movie;
+- (void)setMovie:(Movie *)movie;
 
 @end
 

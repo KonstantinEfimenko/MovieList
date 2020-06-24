@@ -23,12 +23,12 @@
     [_presenter viewDidLoad];
 }
 
-- (void) reloadTableView {
+- (void)reloadTableView {
     [_tableView reloadData];
 }
 
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    MovieListCell *cell = (MovieListCell*)[tableView dequeueReusableCellWithIdentifier: MovieListCell.reuseKey];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    MovieListCell *cell = (MovieListCell *)[tableView dequeueReusableCellWithIdentifier:MovieListCell.reuseKey];
     if (cell) {
         [cell setMovie: [_presenter movieAtIndexPath:indexPath]];
     }
@@ -36,7 +36,7 @@
     return cell;
 }
 
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_presenter numberOfRows];
 }
 

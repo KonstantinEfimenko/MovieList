@@ -11,9 +11,9 @@
 
 @protocol StorageManagerProtocol <NSObject>
 
--(void) getMoviesWithCompletion:(void(^)(NSArray*))callback;
+- (void)getMoviesWithCompletion:(void(^)(NSArray *))callback;
 
--(void) getMovieDetailsWithId:(NSInteger)movieId completion:(void(^)(MovieDetails*))callback;
+- (void)getMovieDetailsWithId:(NSInteger)movieId completion:(void(^)(MovieDetails *))callback;
 
 @end
 

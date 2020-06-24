@@ -12,11 +12,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MovieDetails : NSObject
 
-@property NSString* title;
-@property NSString* tagline;
-@property NSString* overview;
+@property NSString *title;
+@property NSString *tagline;
+@property NSString *overview;
 
-- (id)initWithDictionary:(NSDictionary*)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
 

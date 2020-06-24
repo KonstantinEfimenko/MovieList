@@ -15,17 +15,18 @@
 
 @implementation SceneDelegate
 
-- (id<CoordinatorProtocol>) applicationCoordinator {
+- (id<CoordinatorProtocol>)applicationCoordinator {
     
-    StorageManager* storageManager = [[StorageManager alloc] init];
+    StorageManager *storageManager = [[StorageManager alloc] init];
     
-    AppCoordinator* coordinator = [[AppCoordinator alloc] initWithStorageManager: storageManager window: _window];
+    AppCoordinator *coordinator = [[AppCoordinator alloc] initWithStorageManager:storageManager window:_window];
     return coordinator;
 }
 
 - (void)scene:(UIScene *)scene willConnectToSession:(UISceneSession *)session options:(UISceneConnectionOptions *)connectionOptions  API_AVAILABLE(ios(13.0)){
-     id<CoordinatorProtocol> coordinator = [self applicationCoordinator];
-       
-       [coordinator start];
+    id<CoordinatorProtocol> coordinator = [self applicationCoordinator];
+    
+    [coordinator start];
 }
+
 @end

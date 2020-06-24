@@ -12,15 +12,19 @@
 #import "Movie.h"
 
 @protocol CoordinatorProtocol <NSObject>
-- (void) start;
+
+- (void)start;
+
 @end
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AppCoordinator : NSObject  <CoordinatorProtocol>
--(id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager window: (UIWindow *) window;
+@interface AppCoordinator : NSObject <CoordinatorProtocol>
 
--(void)didSelectMovieWithId:(NSInteger*)movieId;
+- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager window: (UIWindow *) window;
+
+- (void)didSelectMovieWithId:(NSInteger)movieId;
+
 @end
 
 NS_ASSUME_NONNULL_END

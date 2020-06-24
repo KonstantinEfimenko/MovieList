@@ -28,6 +28,7 @@
 		DDB96D3D2497AEAF00F51957 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB96D3C2497AEAF00F51957 /* Movie.m */; };
 		DDB96D4E2497BF2000F51957 /* MovieListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB96D4C2497BF2000F51957 /* MovieListCell.m */; };
 		DDB96D4F2497BF2000F51957 /* MovieListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB96D4D2497BF2000F51957 /* MovieListCell.xib */; };
+		DDD1CA2124A20E6F002A2289 /* MovieListNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD1CA2024A20E6F002A2289 /* MovieListNavigation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		DDB96D4B2497BF2000F51957 /* MovieListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListCell.h; sourceTree = "<group>"; };
 		DDB96D4C2497BF2000F51957 /* MovieListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListCell.m; sourceTree = "<group>"; };
 		DDB96D4D2497BF2000F51957 /* MovieListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieListCell.xib; sourceTree = "<group>"; };
+		DDD1CA1F24A20E6F002A2289 /* MovieListNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieListNavigation.h; sourceTree = "<group>"; };
+		DDD1CA2024A20E6F002A2289 /* MovieListNavigation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieListNavigation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				DDB96D2B2497779000F51957 /* MovieList.storyboard */,
+				DDD1CA1F24A20E6F002A2289 /* MovieListNavigation.h */,
+				DDD1CA2024A20E6F002A2289 /* MovieListNavigation.m */,
 				DDB96D282497777500F51957 /* MovieListPresenter.h */,
 				DDB96D292497777500F51957 /* MovieListPresenter.m */,
 				DDB96D252497775500F51957 /* MovieListViewController.h */,
@@ -327,6 +332,7 @@
 				DDB96D2A2497777500F51957 /* MovieListPresenter.m in Sources */,
 				DDB96D1E2497642300F51957 /* AppCoordinator.m in Sources */,
 				DDB96D272497775500F51957 /* MovieListViewController.m in Sources */,
+				DDD1CA2124A20E6F002A2289 /* MovieListNavigation.m in Sources */,
 				DD6AC408249957C300F8C794 /* MovieDetails.m in Sources */,
 				DDB96D0A2497631200F51957 /* ViewController.m in Sources */,
 				DDB96D32249777D200F51957 /* MovieDetailsViewController.m in Sources */,

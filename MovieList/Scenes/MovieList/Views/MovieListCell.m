@@ -20,15 +20,15 @@
 
 @implementation MovieListCell
 
-+(NSString*)reuseKey {
++ (NSString *)reuseKey {
     return @"MovieListCell";
 }
 
-+(UINib*)nib {
++ (UINib *)nib {
     return [UINib nibWithNibName: MovieListCell.reuseKey bundle:nil];
 }
 
--(void)awakeFromNib {
+- (void)awakeFromNib {
     [super awakeFromNib];
 }
 
@@ -39,9 +39,10 @@
     _posterImageView.image = nil;
 }
 
--(void)setMovie:(Movie*)movie {
+- (void)setMovie:(Movie *)movie {
     _titleLabel.text = movie.title;
     _popularityLabel.text = movie.popularity;
     [_posterImageView setImageWithURL:movie.url];
 }
+
 @end

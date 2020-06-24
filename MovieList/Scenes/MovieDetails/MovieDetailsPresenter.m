@@ -13,7 +13,7 @@
 __weak id<StorageManagerProtocol> _Nullable _storageManager;
 NSInteger _movieId;
 
-- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager movieId:(NSInteger)movieId {
+- (instancetype)initWithStorageManager:(id<StorageManagerProtocol>)storageManager movieId:(NSInteger)movieId {
     self = [super init];
     if (self) {
         _storageManager = storageManager;
@@ -22,10 +22,10 @@ NSInteger _movieId;
     return self;
 }
 
--(void) viewDidLoad {
+- (void)viewDidLoad {
     __weak typeof(self) weakSelf = self;
     
-    [_storageManager getMovieDetailsWithId:_movieId completion:^(MovieDetails* movieDetails) {
+    [_storageManager getMovieDetailsWithId:_movieId completion:^(MovieDetails *movieDetails) {
         __strong typeof(self) strongSelf = weakSelf;
         if (movieDetails) {
             [strongSelf fillViewWithMovieDetails:movieDetails];
@@ -33,7 +33,7 @@ NSInteger _movieId;
     }];
 }
 
--(void) fillViewWithMovieDetails:(MovieDetails*)movieDetails {
+- (void)fillViewWithMovieDetails:(MovieDetails *)movieDetails {
     [_view setTitle:movieDetails.title];
     [_view setTagline:movieDetails.tagline];
     [_view setOverview:movieDetails.overview];

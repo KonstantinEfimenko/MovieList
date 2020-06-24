@@ -12,15 +12,15 @@
 
 @implementation StorageManager
 
-NSMutableArray* movies = nil;
+NSMutableArray *movies = nil;
 AFHTTPSessionManager *sessionManager = nil;
 int page = 0;
 bool isLoading = false;
-NSDictionary*movieDetailsParameters;
-NSString* apiKey = @"c2633d90b16883396aece840fd550cf6";
-NSString* defaultLanguage = @"en-US";
+NSDictionary* movieDetailsParameters;
+NSString *apiKey = @"c2633d90b16883396aece840fd550cf6";
+NSString *defaultLanguage = @"en-US";
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self) {
         movies = [[NSMutableArray alloc] init];
@@ -32,7 +32,7 @@ NSString* defaultLanguage = @"en-US";
     return self;
 }
 
-- (void) getMoviesWithCompletion:(void(^)(NSArray*))callback {
+- (void)getMoviesWithCompletion:(void(^)(NSArray *))callback {
     
     if (isLoading) {
         callback(nil);
@@ -50,10 +50,10 @@ NSString* defaultLanguage = @"en-US";
                 headers:nil
                progress:nil
                 success:^(NSURLSessionTask *task, id responseObject) {
-        NSMutableArray*resultArray = [[NSMutableArray alloc] init];
-        NSArray*results = responseObject[@"results"];
+        NSMutableArray *resultArray = [[NSMutableArray alloc] init];
+        NSArray *results = responseObject[@"results"];
         for (NSDictionary *dic in results) {
-            Movie*movie = [[Movie alloc] initWithDictionary:dic];
+            Movie *movie = [[Movie alloc] initWithDictionary:dic];
             [resultArray addObject:movie];
         }
         [movies addObjectsFromArray:resultArray];
@@ -66,15 +66,15 @@ NSString* defaultLanguage = @"en-US";
     }];
 }
 
--(void) getMovieDetailsWithId:(NSInteger)movieId completion:(void(^)(MovieDetails*))callback {
-    NSString* urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@", @(movieId)];
+- (void)getMovieDetailsWithId:(NSInteger)movieId completion:(void(^)(MovieDetails *))callback {
+    NSString *urlString = [NSString stringWithFormat:@"https://api.themoviedb.org/3/movie/%@", @(movieId)];
     
     [sessionManager GET:urlString
              parameters:movieDetailsParameters
                 headers:nil
                progress:nil
                 success:^(NSURLSessionTask *task, id responseObject) {
-        MovieDetails* movieDetails = [[MovieDetails alloc] initWithDictionary:responseObject];
+        MovieDetails *movieDetails = [[MovieDetails alloc] initWithDictionary:responseObject];
         callback(movieDetails);
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         NSLog(@"Error: %@", error);

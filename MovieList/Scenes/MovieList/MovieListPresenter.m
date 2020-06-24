@@ -12,35 +12,36 @@
 @implementation MovieListPresenter
 
 __weak id<StorageManagerProtocol> _Nullable storage;
-NSArray<Movie*>*list;
-AppCoordinator* _coordinator;
+NSArray<Movie *> *list;
+id<MovieListNavigationProtocol> _navigation;
 
-- (id)initWithStorageManager:(id<StorageManagerProtocol>)storageManager coordinator:(AppCoordinator *)coordinator {
+- (instancetype)initWithStorageManager:(id<StorageManagerProtocol>)storageManager navigation:(id<MovieListNavigationProtocol>)navigation {
     self = [super init];
     if (self) {
         storage = storageManager;
-        _coordinator = coordinator;
+        _navigation = navigation;
     }
     return self;
 }
 
--(NSInteger)numberOfRows {
+- (NSInteger)numberOfRows {
     return list.count;
 }
 
--(Movie*) movieAtIndexPath:(NSIndexPath*)indexPath {
+- (Movie *)movieAtIndexPath:(NSIndexPath *)indexPath {
     return list[indexPath.row];
 }
 
--(void) didSelectMovieAtIndexPath:(NSIndexPath*)indexPath {
-    [_coordinator didSelectMovieWithId:list[indexPath.row].movieId];
+- (void)didSelectMovieAtIndexPath:(NSIndexPath *)indexPath {
+    NSInteger movieId = list[indexPath.row].movieId;
+    _navigation.didSelectMovieWithId(movieId);
 }
 
-- (void) viewDidLoad {
+- (void)viewDidLoad {
     [self loadNext];
 }
 
--(void) loadNext {
+- (void)loadNext {
     __weak typeof(self) weakSelf = self;
     [storage getMoviesWithCompletion:^(NSArray *array) {
         __strong typeof(self) strongSelf = weakSelf;

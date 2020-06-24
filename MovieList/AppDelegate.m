@@ -17,11 +17,11 @@
 
 - (id<CoordinatorProtocol>) applicationCoordinator {
     
-    StorageManager* storageManager = [[StorageManager alloc] init];
+    StorageManager *storageManager = [[StorageManager alloc] init];
     
-    UIWindow*window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIWindow *window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    AppCoordinator* coordinator = [[AppCoordinator alloc] initWithStorageManager: storageManager window: window];
+    AppCoordinator *coordinator = [[AppCoordinator alloc] initWithStorageManager:storageManager window:window];
     return coordinator;
 }
 

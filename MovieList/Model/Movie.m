@@ -10,7 +10,7 @@
 
 @implementation Movie
 
--(id)initWithDictionary:(NSDictionary*)dictionary {
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         _movieId = [dictionary[@"id"] integerValue];
@@ -21,8 +21,8 @@
     return self;
 }
 
--(NSURL*)url {
-    NSString*urlString = [NSString stringWithFormat: @"http://image.tmdb.org/t/p/w154/%@", _posterPath];
+- (NSURL *)url {
+    NSString *urlString = [NSString stringWithFormat: @"http://image.tmdb.org/t/p/w154/%@", _posterPath];
     return [NSURL URLWithString: urlString];
 }
 
